@@ -12,11 +12,15 @@ router.register(
     api_views.CommentViewSet,
     basename='comments'
 )
-router.register('follow', api_views.FollowViewSet)
+router.register(
+    'follow',
+    api_views.FollowViewSet,
+    basename='follows'
+)
 
 app_name = 'api'
 
 urlpatterns = [
-    path('', include('djoser.urls.jwt')),
-    path('', include(router.urls)),
+    path('v1/', include('djoser.urls.jwt')),
+    path('v1/', include(router.urls)),
 ]
